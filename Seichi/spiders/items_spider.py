@@ -15,7 +15,7 @@ class ItemsSpider(scrapy.Spider):
         yield scrapy.Request(url='https://legwork.g.hatena.ne.jp/', callback=self.parse)
 
     def parse(self, response):
-        for href in response.css('div.recentsubtitles a::attr(href)'):
+        for href in response.css('div.recentsubtitles a::attr(href)')[:15]:
             yield response.follow(href, self.parse_detail)
 
     def parse_detail(self, response):
