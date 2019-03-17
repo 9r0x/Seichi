@@ -11,12 +11,15 @@ const Marker = (place) => {
     id,
     placename,
     title,
+    url,
   } = place;
   const content = (
     <div>
       <p>
         <strong>Title: </strong>
-        {title}
+        <a href={url}>
+          {title}
+        </a>
       </p>
       <p>
         <strong>Latitude: </strong>
